@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<!--<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">-->
+<!--<head>-->
+<!--    <title>error page example</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<h1>Something went wrong <br><br><a href="/login">Login</a></h1>-->
+<!--<br><br><a href="/logout">Logout</a>-->
+
+
+
+<!--</body>-->
+<!--</html>-->
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Error page</title>
+    <meta charset="utf-8" />
+</head>
+<body th:with="httpStatus=${T(org.springframework.http.HttpStatus).valueOf(#response.status)}">
+<h1 th:text="|${httpStatus} - ${httpStatus.reasonPhrase}|">404</h1>
+<p th:utext="${errorMessage}">Error java.lang.NullPointerException</p>
+<a href="index.html" th:href="@{/index.html}">Back to Home Page</a>
+</body>
+</html>
